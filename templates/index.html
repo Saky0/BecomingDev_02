@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>IMC Calculator</title>
+    <link rel="sortcut icon" href="../static/images/IMC.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="Logo">
+                <div class="LogoText">IMC Calculator</div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="imcCalculatorDiv">
+                <!-- Pop up -->
+                <div onclick="closeBackground();" class="popupWrapper">
+                    <div class="popup">
+                        <div class="popupClose">x</div>
+
+                        <div class="popupContent">
+                            <h2>Resultado IMC</h2>
+                            <p>O seu IMC é de: <span class="imcResult">18.5</span></p> 
+                            <div class="divPontilhada"></div>
+                            <p>Grau: <span class="imcGrauResult">Magro</span></p> 
+
+                            <div class="indiceGrauImc">
+                                <div class="barraImc">
+                                    <div class="cutLeft"></div>
+                                    <div class="cutRight"></div>
+                                </div>
+                                <div class="barraImc">
+                                    <div class="cutLeft"></div>
+                                    <div class="cutRight"></div>
+                                </div>
+                                <div class="barraImc">
+                                    <div class="cutLeft"></div>
+                                    <div class="cutRight"></div>
+                                </div>
+                            </div>
+
+                            <div class="itensDiv">
+                                <button class="calculateAgainButton">Calcular Novamente</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h1>Calculadora de IMC</h1>
+
+                <!-- input text tooltip -->
+                <div class="itensDiv txtDiv tooltip">
+                    <input onkeypress="changeRedErrorColor();" placeholder="Seu Peso..." class="textBox weight" type="number"/>
+                    <span class="tooltiptext tooltiptextInvertido">
+                        Digite valores utilizando "."
+                        <br>
+                        Ex: 45.50 Kg
+                    </span>
+                    <img class="txtIcons" src="../static/images/weight.png"/>
+                </div>
+                <div class="itensDiv txtDiv tooltip"> 
+                    <input onkeypress="changeRedErrorColor();" placeholder="Sua Altura..." class="textBox height" type="number"/>
+                    <span class="tooltiptext tooltiptextInvertido">
+                        Digite valores utilizando "."
+                        <br>
+                        Ex: 1.80 m
+                    </span>
+                    <img class="txtIcons" src="../static/images/height.png"/>
+                </div>
+                
+                <!-- Calculate BMI Button -->
+                <div class="itensDiv">
+                    <button class="calculateButton">Calcular</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="imcTableDiv">
+                <h1>Tabela de Grau IMC</h1>
+
+                <!-- BMI Table -->
+                <table>
+                    <thead>
+                        <!-- T Header -->
+                        <tr>
+                            <th>Classificação</th>
+                            <th>IMC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- T Body -->
+                        <tr class="hov">
+                            <td class="Grau1 tooltip">
+                                <span class="tooltiptext">Seu peso está abaixo do ideal! Procure aumentar sua alimentação!</span>  
+                                Abaixo do Peso
+                            </td>
+                            <td class="imc">< 18,5</td>
+                        </tr>
+                        <tr class="hov">    
+                            <td class="Grau2 tooltip">
+                                <span class="tooltiptext">
+                                    Seu peso está ideal! 
+                                    <br>
+                                    Procure manter sua alimentação!
+                                </span>
+                                Peso Ideal</td>
+                            <td class="imc">18,6 - 24,9</td>
+                        </tr>
+                        <tr class="hov">      
+                            <td class="Grau3 tooltip">
+                                <span class="tooltiptext">
+                                    Seu peso está um pouco elevado! 
+                                    <br> Procure reduzir sua alimentação!
+                                </span>
+                                Levemente Acima do Peso</td>
+                            <td class="imc">25,0 - 29,9</td>
+                        </tr>
+                        <tr class="hov">    
+                            <td class="Grau4 tooltip">
+                                <span class="tooltiptext">Você está Obeso em grau 1! Procure um nutricionista!</span>
+                                Obesidade - I</td>
+                            <td class="imc">30,0 - 34,9</td>
+                        </tr>
+                        <tr  class="hov">    
+                            <td class="Grau5 tooltip">
+                                <span class="tooltiptext">Você está Obeso em grau 2! Procure um nutricionista!</span>
+                                Obesidade - II (Severa)</td>
+                            <td class="imc">35,0 - 39,9</td>
+                        </tr>
+                        <tr class="hov">    
+                            <td class="Grau6 tooltip">
+                                <span class="tooltiptext">Você está Obeso em grau 3! Procure um nutricionista!</span>
+                                Obesidade - III (Mórbida)</td>
+                            <td class="imc">> 40,0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>
