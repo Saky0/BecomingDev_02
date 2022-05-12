@@ -116,6 +116,11 @@ h1 {
     font-size: 16px;
 }
 
+.textBox:focus {
+    box-shadow: 1px 0px 6px #13C8B5;
+    border: 1px solid #13C8B5;
+}
+
 .itensDiv {
     margin-bottom: 30px;
 }
