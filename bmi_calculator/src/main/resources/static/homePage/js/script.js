@@ -9,19 +9,32 @@ const txtHeight = document.querySelector('.height');
 // Are filled, if yes, performs BMI calculation
 btnCalculate.addEventListener('click', function () {
     var textBox = document.querySelectorAll('.textBox');
-    var weight = parseFloat(textBox[0].value);
-    var height = parseFloat(textBox[1].value);
+    var weightField = parseFloat(textBox[0].value);
+    var heightField = parseFloat(textBox[1].value);
     
-    if(!isNaN(weight) && !isNaN(height)) {
+    if(!isNaN(weightField) && !isNaN(heightField)) {
 
-        var imc = weight / (height ** 2);
+        var imc = (weightField / (heightField ** 2)).toFixed(2);
         var imcResult = document.querySelector('.imcResult');
-        imcResult.innerHTML = imc.toFixed(2);
+        imcResult.innerHTML = imc;
+
+        // Post the result to the API
+        const URL = 'http://localhost:8080/api/bmi'
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", URL, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            weight: weightField,
+            height: heightField,
+            bmiPerformance: imc
+        }));
+
+        // End Post // 
 
         // Sets the color according to the BMI degree
         if(imc < 18.5) {
-            var imcGrauText = document.querySelector('.imcGrauResult');
-            imcGrauText.innerHTML = 'Magro';
+            var imcGrauResult = document.querySelector('.imcGrauResult');
+            imcGrauResult.innerHTML = 'Magro';
 
             document.documentElement.style.setProperty('--grau-color', '#01C5E0');
         }
@@ -60,11 +73,11 @@ btnCalculate.addEventListener('click', function () {
     } 
     // If any field is not filled, change the color of the border indicating to be filled
     else {
-        if(isNaN(weight)) {
+        if(isNaN(weightField)) {
             var input = document.querySelector('.weight');
             input.style.border = '1.5px solid rgba(200, 0, 0, 0.8)'
         }
-        if(isNaN(height)) {
+        if(isNaN(heightField)) {
             var input = document.querySelector('.height');
             input.style.border = '1.5px solid rgba(200, 0, 0, 0.8)'
         }
@@ -105,8 +118,24 @@ txtHeight.addEventListener('keydown', function () {
 
 function reset() {
     popup.style.display = 'none';
-    var textBox = document.querySelectorAll('.textBox');
+    var textBox = document.querySelectorAll('input[type=number]');
     textBox.forEach(element => {
         element.value = null;
     });
 }
+
+// Fix the border red bug when the textBox is focused and before the null field error occurred
+window.onload = function () {
+    var fields = document.querySelectorAll('.textBox');
+
+    fields.forEach(element => {
+        element.addEventListener('click', 
+        function () {
+            if(this.style.border === '1.5px solid rgba(200, 0, 0, 0.8)') {
+                this.style.border = '0';
+            }
+        })
+    });
+}
+
+// Re

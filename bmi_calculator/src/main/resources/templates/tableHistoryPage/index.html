@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>IMC history</title>
+    <link rel="sortcut icon" th:href="@{tableHistoryPage/images/IMC.ico}" href="../../static/tableHistoryPage/images/IMC.ico" type="image/x-icon" />
+    <link rel="stylesheet" th:href="@{tableHistoryPage/css/style.css}" href="../../static/tableHistoryPage/css/style.css">
+</head>
+<body onload="textColors();">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a th:href="@{/}" href="../homePage/index.html" class="LogoText">IMC Calculator</a>
+                <div class="itensBottomBorder"></div>
+            </div>
+            <div class="menuItens">
+                <a th:href="@{/bmi}" href="index.html"><img class="historyIcon" th:src="@{homePage/images/history.png}" src="../../static/homePage/images/history.png"/>
+                </a>
+                <div class="itensBottomBorder active"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="tableSection">
+        <div class="container column">
+        
+            <div class="title">
+                <h1 class="clas">Tabela de Grau IMC</h1>
+            </div>
+
+            <div class="imcTableDiv">
+                <!-- BMI Table -->
+            <table>
+                <thead>
+                    <!-- T Header -->
+                    <tr>
+                        <th>Peso</th>
+                        <th>Altura</th>
+                        <th>IMC</th>
+                    </tr>
+                </thead>
+                <!-- 
+                    Adicionar Feature para alterar a cor
+                    do texto do IMC de acordo com o grau
+                -->
+                <tbody>
+                    <!-- T Body -->
+                    <tr th:each="bmi : ${bmis}" class="hov" >
+                        <td><span th:text="${bmi.weight}"></span></td>
+                        <td><span th:text="${bmi.height}"></span></td>
+                        <td><span class="imc" th:text="${bmi.bmiPerformance}"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        
+        </div>
+    </section>
+
+    <footer>
+        
+    </footer>
+
+    <script th:src="@{tableHistoryPage/js/script.js}" src="../../static/tableHistoryPage/js/script.js"></script>
+</body>
+</html>
