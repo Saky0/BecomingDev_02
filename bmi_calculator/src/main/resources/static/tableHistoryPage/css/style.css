@@ -76,14 +76,97 @@ section {
     flex-wrap: wrap;
 }
 
+
 footer {
-    margin-top: 100px;
-    height: 250px;
+    margin-top: 50px;
+    height: 280px;
     width: 100%;
-    background-color: #11baac;
-    
+    background-color: #1b2222;
+    display: flex;
+    justify-content: center;
 }
 
+.Flexcolumn {
+    flex-direction: column;
+    align-items: unset !important;
+}
+
+.footerArea {
+    display: flex;
+}
+
+.footerAreaItem {
+    flex: 1;
+}
+
+.footerCopy {
+    height: 4em;
+    color: #5c5c5c;
+    font-size: 12px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    border-top: 1px solid #2c2c2c;
+    margin-top: 20px;
+}
+
+.widgetTitleText {
+    color: #fff;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 20px 0 10px 0;
+}
+.widgetBody {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px
+}
+.widgetTitleBar {
+    width: 50px;
+    height: 2px;
+    background-color: #008584;
+    margin-top: 5px; 
+    margin-bottom: 20px;
+}
+
+.widget {
+    display: flex;
+    flex-direction: column;
+}
+.contactText,
+.aboutText {
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+}
+.aboutText {
+    color: #b4b3b3;
+}
+.mentionLink {
+    color: #0174c0;
+    text-decoration: none;
+    font-weight: 600;
+}
+.discriptionText {
+    margin-bottom: 10px;
+}
+.contactBox {
+    display: flex;
+}
+.underBorder {
+    border-bottom: 1px solid rgba(73, 73, 73, 0.5);
+}
+.contactLink {
+    text-decoration: none;
+    color: #a7a7a7;
+    margin-bottom: 15px;
+}
+.contactIcon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    opacity: 80%;
+}
+/*  */
 h1 {
     color: #13C8B5;
     font-size: 36px;
